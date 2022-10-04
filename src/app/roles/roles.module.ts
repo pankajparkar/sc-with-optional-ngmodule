@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RolesRoutingModule } from './roles-routing.module';
 import { RolesComponent } from './roles.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { RoleDetailsComponent } from './details/details.component';
+import { RouterModule } from '@angular/router';
 
 const matModules = [
   MatTableModule,
@@ -13,12 +14,16 @@ const matModules = [
 
 @NgModule({
   declarations: [
-    RolesComponent
+    RolesComponent,
+    RoleDetailsComponent
   ],
   imports: [
     ...matModules,
     CommonModule,
-    RolesRoutingModule,
+    RouterModule.forChild([
+      { path: '', component: RolesComponent },
+      { path: '/details/:id', component: RoleDetailsComponent },
+    ]),
   ]
 })
 export class RolesModule { }
