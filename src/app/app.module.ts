@@ -6,21 +6,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { routes } from './routes';
-
-const materialModules = [
-  MatToolbarModule,
-  MatButtonModule,
-];
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    ...materialModules,
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
