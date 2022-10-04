@@ -34,7 +34,6 @@ const matModules = [
     CommonModule,
     PieChartComponent,
     BarChartComponent,
-    // SharedModule,
   ],
 })
 export class DashboardComponent {
