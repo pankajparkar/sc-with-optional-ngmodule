@@ -12,8 +12,26 @@ const matModules = [
 
 @Component({
   selector: 'sc-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss'],
+  template: `
+  <mat-card>
+    <mat-card-title>Product</mat-card-title>
+    <mat-card-subtitle>List of products from inventory</mat-card-subtitle>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card>
+  `,
   standalone: true,
   imports: [
     ...matModules,

@@ -14,8 +14,21 @@ const materialModules = [
 
 @Component({
   selector: 'sc-pie-chart',
-  templateUrl: './pie-chart.component.html',
-  styleUrls: ['./pie-chart.component.scss'],
+  template: `
+    <canvas baseChart 
+      [data]="pieChartData" 
+      [labels]="pieChartLabels" 
+      [options]="pieChartOptions"
+      pieChartType="pie"
+      [plugins]="pieChartPlugins"
+      [legend]="pieChartLegend">
+    </canvas>
+  `,
+  styles: [`
+    :host {
+      display: block;
+    }
+  `],
   standalone: true,
   imports: [
     ...materialModules,

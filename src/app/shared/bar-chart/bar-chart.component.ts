@@ -12,8 +12,20 @@ const materialModules = [
 
 @Component({
   selector: 'sc-bar-chart',
-  templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.scss'],
+  template: `
+    <canvas baseChart 
+      [datasets]="barChartData"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+        [legend]="barChartLegend">
+    </canvas>
+  `,
+  styles: [`
+    :host {
+      display: block;
+    }
+  `],
   standalone: true,
   imports: [
     ...materialModules,
