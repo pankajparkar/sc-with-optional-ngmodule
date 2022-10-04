@@ -22,7 +22,7 @@ const matModules = [
     CommonModule,
     RouterModule.forChild([
       { path: '', component: RolesComponent },
-      { path: '/details/:id', component: RoleDetailsComponent },
+      { path: 'details/:id', component: RoleDetailsComponent },
     ]),
   ]
 })

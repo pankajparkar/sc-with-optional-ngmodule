@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ProductRoutingModule } from './product-routing.module';
-import { ProductComponent } from './product.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
+
+import { ProductComponent } from './product.component';
 
 const matModules = [
   MatTableModule,
@@ -18,7 +18,9 @@ const matModules = [
   imports: [
     ...matModules,
     CommonModule,
-    ProductRoutingModule
+    RouterModule.forChild([
+      { path: '', component: ProductComponent },
+    ])
   ]
 })
 export class ProductModule { }
