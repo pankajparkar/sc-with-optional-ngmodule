@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'sc-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `<h1>Hello {{ title }}</h1>`,
+  styles: [``]
 })
 export class AppComponent {
-  title = 'sc-with-optional-ngmodule';
+  title = 'Angular';
 }
