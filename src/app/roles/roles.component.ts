@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PeriodicElement } from '../models';
 import { ApiService } from '../services/api.service';
 
@@ -7,16 +7,8 @@ import { ApiService } from '../services/api.service';
   templateUrl: './roles.component.html',
   styleUrls: ['./roles.component.scss']
 })
-export class RolesComponent implements OnInit {
-
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+export class RolesComponent {
+  private apiService = inject(ApiService);
+  displayedColumns: string[] = ['position', 'name'];
   dataSource: PeriodicElement[] = this.apiService.getPeriodicElements();
-
-  constructor(
-    private apiService: ApiService
-  ) { }
-
-  ngOnInit(): void {
-  }
-
 }
