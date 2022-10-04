@@ -1,16 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ChartType, ChartOptions } from 'chart.js';
 import {
-  // SingleDataSet, Label,
-  // monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip
+  NgChartsModule
 } from 'ng2-charts';
 
+const materialModules = [
+  MatToolbarModule,
+  MatButtonModule,
+];
+
 @Component({
-  selector: 'app-pie-chart',
+  selector: 'sc-pie-chart',
   templateUrl: './pie-chart.component.html',
-  styleUrls: ['./pie-chart.component.scss']
+  styleUrls: ['./pie-chart.component.scss'],
+  standalone: true,
+  imports: [
+    ...materialModules,
+    NgChartsModule,
+    CommonModule,
+  ]
 })
-export class PieChartComponent implements OnInit {
+export class PieChartComponent {
   // Pie
   public pieChartOptions: ChartOptions = {
     responsive: true,
@@ -20,13 +33,4 @@ export class PieChartComponent implements OnInit {
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
-
-  constructor() {
-    // monkeyPatchChartJsTooltip();
-    // monkeyPatchChartJsLegend();
-  }
-
-  ngOnInit() {
-  }
-
 }

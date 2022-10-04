@@ -4,23 +4,33 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 const routes: Routes = [
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+    loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent),
   },
   {
     path: 'roles',
-    loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./roles/roles.component').then(m => m.RolesComponent)
+      },
+      {
+        path: 'details/:id',
+        loadComponent: () => import('./roles/details/details.component')
+          .then(m => m.RoleDetailsComponent),
+      },
+    ]
   },
   {
     path: 'product',
-    loadChildren: () => import('./product/product.module').then(m => m.ProductModule),
+    loadComponent: () => import('./product/product.component').then(m => m.ProductComponent)
   },
   {
     path: '**',
@@ -43,7 +53,7 @@ const materialModules = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    SharedModule,
+    NavbarComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

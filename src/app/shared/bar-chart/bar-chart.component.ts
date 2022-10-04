@@ -1,13 +1,27 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { ChartOptions, ChartType } from 'chart.js';
-// import { Label } from 'ng2-charts/ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
+
+const materialModules = [
+  MatToolbarModule,
+  MatButtonModule,
+];
 
 @Component({
-  selector: 'app-bar-chart',
+  selector: 'sc-bar-chart',
   templateUrl: './bar-chart.component.html',
-  styleUrls: ['./bar-chart.component.scss']
+  styleUrls: ['./bar-chart.component.scss'],
+  standalone: true,
+  imports: [
+    ...materialModules,
+    NgChartsModule,
+    CommonModule,
+  ]
 })
-export class BarChartComponent implements OnInit {
+export class BarChartComponent {
   public barChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -21,8 +35,4 @@ export class BarChartComponent implements OnInit {
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
   ];
 
-  constructor() { }
-
-  ngOnInit() {
-  }
 }
