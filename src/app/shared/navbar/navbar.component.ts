@@ -5,8 +5,14 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'sc-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  template: `
+  <mat-toolbar color="primary">
+    <span routerLink="/home">Lazy Loading Recipes</span>
+    <button mat-button routerLink="/dashboard">Dashboard</button>
+    <button mat-button routerLink="/product">Product</button>
+    <button mat-button routerLink="/roles">Roles</button>
+  </mat-toolbar>
+  `,
   standalone: true,
   imports: [
     MatToolbarModule,
