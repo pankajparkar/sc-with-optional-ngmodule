@@ -1,14 +1,9 @@
 import { Routes } from "@angular/router";
-import { RoleDetailsComponent } from "../roles/details/details.component";
-import { RolesComponent } from "../roles/roles.component";
+import { ProductComponent } from "./product.component";
 
 export default [
     {
         path: '',
-        component: RolesComponent,
-    },
-    {
-        path: 'details/:id',
-        loadComponent: () => RoleDetailsComponent
+        component: ProductComponent,
     },
 ] as Routes;
