@@ -12,25 +12,15 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 const routes: Routes = [
   {
     path: 'dashboard',
-    loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent),
+    loadChildren: () => import('./dashboard/routes').then(i => i.default),
   },
   {
     path: 'roles',
-    children: [
-      {
-        path: '',
-        loadComponent: () => import('./roles/roles.component').then(m => m.RolesComponent)
-      },
-      {
-        path: 'details/:id',
-        loadComponent: () => import('./roles/details/details.component')
-          .then(m => m.RoleDetailsComponent),
-      },
-    ]
+    loadChildren: () => import('./roles/routes').then(i => i.default),
   },
   {
     path: 'product',
-    loadComponent: () => import('./product/product.component').then(m => m.ProductComponent)
+    loadChildren: () => import('./product/routes').then(m => m.default)
   },
   {
     path: '**',
