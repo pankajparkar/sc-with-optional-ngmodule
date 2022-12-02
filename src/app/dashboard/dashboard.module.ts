@@ -6,7 +6,7 @@ import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 const matModules = [
   MatGridListModule,
@@ -18,9 +18,7 @@ const matModules = [
   imports: [
     ...matModules,
     CommonModule,
-    RouterModule.forChild([
-      { path: '', component: DashboardComponent },
-    ]),
+    DashboardRoutingModule,
     SharedModule,
   ],
   declarations: [
