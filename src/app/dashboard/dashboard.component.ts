@@ -14,15 +14,26 @@ const matModules = [
 
 @Component({
   selector: 'sc-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  template: `
+    <mat-grid-list cols="2">
+      <mat-grid-tile>
+          <mat-card>
+              <sc-bar-chart></sc-bar-chart>
+          </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-card>
+              <sc-bar-chart></sc-bar-chart>
+          </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  `,
   standalone: true,
   imports: [
     ...matModules,
     CommonModule,
     PieChartComponent,
     BarChartComponent,
-    // SharedModule,
   ],
 })
 export class DashboardComponent {

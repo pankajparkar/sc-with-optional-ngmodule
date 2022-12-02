@@ -1,4 +1,3 @@
-import { Routes } from '@angular/router';
 import { RoleDetailsComponent } from '../roles/details/details.component';
 import { RolesComponent } from '../roles/roles.component';
 
