@@ -33,7 +33,6 @@ const matModules = [
       </mat-card-actions>
     </mat-card>
   `,
-  styleUrls: ['./details.component.scss'],
   standalone: true,
   imports: [
     ...matModules,
